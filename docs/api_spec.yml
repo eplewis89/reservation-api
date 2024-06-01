@@ -1,0 +1,268 @@
+openapi: 3.0.0
+info:
+  title: Erin Lewis Reservation API
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:5000'
+tags:
+  - name: Providers
+  - name: Schedules
+  - name: Reservations
+paths:
+  /api/providers:
+    get:
+      tags:
+        - Providers
+      summary: Get All Providers
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Providers
+      summary: Create Provider
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ProviderName: Test Provider
+                ProviderEmail: some@email.com
+                ProviderPhone: '1231231234'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/providers/{id}:
+    get:
+      tags:
+        - Providers
+      summary: Get Provider
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the provider to get
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Providers
+      summary: Update Provider
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the provider to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ProviderName: Test Provider
+                ProviderEmail: some@email.com
+                ProviderPhone: '1231231234'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Providers
+      summary: Remove Provider
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the provider to delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/schedules:
+    get:
+      tags:
+        - Schedules
+      summary: Get All Schedules
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Schedules
+      summary: Create Schedule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ScheduleStart: '2023-08-05T00:00:00'
+                ScheduleEnd: '2023-08-10T00:00:00'
+                ScheduleProvider: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/schedules/{id}:
+    get:
+      tags:
+        - Schedules
+      summary: Get Schedule
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the schedule to get
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Schedules
+      summary: Update Schedule
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the schedule to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ScheduleStart: '2023-08-11T00:00:00'
+                ScheduleEnd: '2023-08-12T00:00:00'
+                ScheduleProvider: 3
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Schedules
+      summary: Remove Schedule
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the schedule to delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/reservations:
+    get:
+      tags:
+        - Reservations
+      summary: Get All Reservations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Reservations
+      summary: Create Reservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ClientName: Test Client
+                ClientEmail: some@email.com
+                ClientPhone: '1231231234'
+                ReservationTime: '2023-08-06T20:30:00'
+                ReservationProvider: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/reservations/{id}:
+    get:
+      tags:
+        - Reservations
+      summary: Get Reservation
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the reservation to get
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Reservations
+      summary: Update Reservation
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the reservation to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Reservations
+      summary: Remove Reservation
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the reservation to delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

@@ -1,0 +1,7 @@
+{
+    "app_config": {
+        "debug": true,
+        "main_db": "reservations.db",
+        "test_db": "test.db"
+    }
+}
